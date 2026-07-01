@@ -15,47 +15,47 @@ const certifications = [
 export default function About() {
   const imageRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: imageRef, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+  const y = useTransform(scrollYProgress, [0, 1], [-40, 40]);
 
   return (
-    <div className="py-24 px-8 lg:px-16">
+    <div className="py-32 px-8 lg:px-16">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection className="mb-16">
-          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">Our Practitioner</p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-charcoal">
-            About the Practitioner
+        {/* Header */}
+        <AnimatedSection className="mb-24">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-5">Our Practitioner</p>
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-charcoal leading-[1.04]">
+            About the<br />Practitioner
           </h1>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <div ref={imageRef} className="overflow-hidden rounded-xl">
-            <motion.div
-              style={{ y }}
-              className="w-full max-w-md mx-auto lg:mx-0"
-            >
-              <div className="aspect-[3/4] rounded-xl bg-sage/10 flex items-center justify-center">
-                <p className="text-sage/40 text-sm">Professional Headshot</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          {/* Image with parallax */}
+          <div ref={imageRef} className="overflow-hidden rounded-2xl">
+            <motion.div style={{ y }} className="w-full max-w-md mx-auto lg:mx-0">
+              <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-sage/20 to-sage/5 flex items-end p-8">
+                <p className="text-xs text-sage/40 uppercase tracking-widest">Practitioner Photo</p>
               </div>
             </motion.div>
           </div>
 
-          <div className="flex flex-col gap-8">
+          {/* Bio */}
+          <div className="flex flex-col gap-12 pt-4">
             <motion.div
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="flex flex-col gap-5"
+              className="flex flex-col gap-6"
             >
-              <p className="text-charcoal/70 leading-relaxed">
+              <p className="text-charcoal/60 leading-relaxed text-[15px]">
                 With a deep commitment to prophetic medicine and holistic wellness, I am a certified Hijama
                 practitioner dedicated to providing safe, professional, and spiritually grounded cupping therapy.
               </p>
-              <p className="text-charcoal/70 leading-relaxed">
+              <p className="text-charcoal/60 leading-relaxed text-[15px]">
                 My journey into Hijama began through a personal experience with the profound benefits of this
                 ancient healing practice. After years of study, clinical training, and certification, I now
                 offer this transformative therapy to individuals seeking natural relief and holistic balance.
               </p>
-              <p className="text-charcoal/70 leading-relaxed">
+              <p className="text-charcoal/60 leading-relaxed text-[15px]">
                 Every session is conducted with meticulous care, adhering to the highest standards of hygiene
                 and clinical safety. I take a personalised approach, ensuring each client receives tailored
                 aftercare guidance and ongoing support.
@@ -63,17 +63,19 @@ export default function About() {
             </motion.div>
 
             <AnimatedSection delay={0.2}>
-              <h2 className="text-lg font-bold tracking-tight text-charcoal mb-5">
-                Qualifications & Certifications
-              </h2>
-              <ul className="flex flex-col gap-3">
-                {certifications.map((cert) => (
-                  <li key={cert} className="flex items-start gap-3 text-sm text-charcoal/70">
-                    <span className="w-1.5 h-1.5 rounded-full bg-sage mt-2 flex-shrink-0" />
-                    {cert}
-                  </li>
-                ))}
-              </ul>
+              <div className="border-t border-sage/10 pt-10">
+                <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-8">
+                  Qualifications & Certifications
+                </h2>
+                <ul className="flex flex-col gap-5">
+                  {certifications.map((cert) => (
+                    <li key={cert} className="flex items-start gap-4">
+                      <span className="w-1 h-1 rounded-full bg-sage mt-2.5 flex-shrink-0" />
+                      <span className="text-sm text-charcoal/60">{cert}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </AnimatedSection>
           </div>
         </div>
