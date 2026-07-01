@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head><title>Netlify Form Definitions</title></head>
+<body>
+
+  <!-- appointment-request form -->
+  <form name="appointment-request" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="appointment-request" />
+    <input name="bot-field" />
+    <input name="name" type="text" />
+    <input name="phone" type="tel" />
+    <input name="email" type="email" />
+    <select name="service">
+      <option value="Hijama Therapy">Hijama Therapy</option>
+      <option value="Consultation">Consultation</option>
+      <option value="Other">Other</option>
+    </select>
+    <textarea name="notes"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- contact form -->
+  <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="contact" />
+    <input name="bot-field" />
+    <input name="name" type="text" />
+    <input name="email" type="email" />
+    <textarea name="message"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- notify-me form -->
+  <form name="notify-me" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="notify-me" />
+    <input name="bot-field" />
+    <input name="email" type="email" />
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
