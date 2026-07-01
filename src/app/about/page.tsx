@@ -20,7 +20,6 @@ export default function About() {
   return (
     <div className="py-32 px-8 lg:px-16">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <AnimatedSection className="mb-24">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-5">Our Practitioner</p>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-charcoal leading-[1.04]">
@@ -29,7 +28,6 @@ export default function About() {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-          {/* Image with parallax */}
           <div ref={imageRef} className="overflow-hidden rounded-2xl">
             <motion.div style={{ y }} className="w-full max-w-md mx-auto lg:mx-0">
               <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-sage/20 to-sage/5 flex items-end p-8">
@@ -38,7 +36,6 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Bio */}
           <div className="flex flex-col gap-12 pt-4">
             <motion.div
               variants={fadeUpVariants}

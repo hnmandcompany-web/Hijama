@@ -33,7 +33,7 @@ const testimonials = [
     author: "Yusuf M.",
   },
   {
-    quote: "I've tried many therapies. Hijama with this practitioner has been the most effective by far.",
+    quote: "I’ve tried many therapies. Hijama with this practitioner has been the most effective by far.",
     author: "Amira K.",
   },
 ];
@@ -177,7 +177,7 @@ export default function Home() {
             &ldquo;The best remedy for man is blood-letting.&rdquo;
           </p>
           <p className="text-xs text-charcoal/35 mt-10 uppercase tracking-[0.28em]">
-            Prophet Muhammad ﷺ &nbsp;&middot;&nbsp; Sahih Bukhari
+            Prophet Muhammad ️ &nbsp;&middot;&nbsp; Sahih Bukhari
           </p>
         </AnimatedSection>
       </section>
