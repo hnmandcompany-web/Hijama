@@ -31,11 +31,6 @@ npm install
 npm run dev
 ```
 
-## Deployment
-
-Deploy via Netlify. Point domain `hijamaandmore.com` to Netlify DNS.
-The `@netlify/plugin-nextjs` plugin handles SSR/ISR and form processing.
-
 ## Updating Prices
 
-Edit `src/lib/pricing-config.ts` — change `price: "TBD"` to the actual price string.
+Edit `src/lib/pricing-config.ts` and change `price: "TBD"` to the actual price string.
