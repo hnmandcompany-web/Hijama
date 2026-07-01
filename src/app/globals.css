@@ -7,16 +7,23 @@
   html {
     color: #2C2C2C;
     background-color: #FAFAF9;
+    scroll-behavior: smooth;
   }
 
   body {
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  p, li {
+  p {
     max-width: 65ch;
-    line-height: 1.75;
+    line-height: 1.8;
+  }
+
+  ::selection {
+    background: #749378;
+    color: #FAFAF9;
   }
 }
 

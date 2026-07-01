@@ -27,14 +27,14 @@ const fields = [
 
 export default function RequestAppointment() {
   return (
-    <div className="py-24 px-8 lg:px-16">
+    <div className="py-32 px-8 lg:px-16">
       <div className="max-w-2xl mx-auto">
-        <AnimatedSection className="mb-14">
-          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">Book a Session</p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-charcoal">
+        <AnimatedSection className="mb-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-5">Book a Session</p>
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-charcoal leading-[1.04]">
             Request an Appointment
           </h1>
-          <p className="mt-4 text-charcoal/50 leading-relaxed">
+          <p className="mt-6 text-charcoal/45 leading-relaxed">
             Complete the form below and we will be in touch within 24 hours to confirm your appointment.
           </p>
         </AnimatedSection>

@@ -9,15 +9,15 @@ export const metadata = {
 
 export default function Pricing() {
   return (
-    <div className="py-24 px-8 lg:px-16">
+    <div className="py-32 px-8 lg:px-16">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection className="mb-16 text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-sage mb-3">Transparent Pricing</p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-charcoal">
+        <AnimatedSection className="mb-24">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-5">Transparent Pricing</p>
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-charcoal leading-[1.04]">
             Choose Your Plan
           </h1>
-          <p className="mt-4 text-charcoal/50 text-lg">
-            All sessions include an initial consultation and aftercare guidance.
+          <p className="mt-6 text-charcoal/45 text-base max-w-md leading-relaxed">
+            All sessions include an initial consultation, the therapy itself, and personalised aftercare guidance.
           </p>
         </AnimatedSection>
 
@@ -27,9 +27,9 @@ export default function Pricing() {
           ))}
         </AnimatedSection>
 
-        <AnimatedSection className="mt-16 text-center">
-          <p className="text-sm text-charcoal/50">
-            Prices are subject to change. Contact us for corporate or large group enquiries.
+        <AnimatedSection className="mt-20 pt-10 border-t border-sage/10">
+          <p className="text-xs text-charcoal/35 uppercase tracking-[0.18em]">
+            All prices subject to change &nbsp;&middot;&nbsp; Contact us for group or corporate enquiries
           </p>
         </AnimatedSection>
       </div>
