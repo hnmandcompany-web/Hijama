@@ -14,7 +14,6 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# NOTE: no catch-all `/* -> /index.html` rule here. Routing is handled by
+# @netlify/plugin-nextjs; a SPA-style catch-all would shadow the App Router's
+# dynamic routes (e.g. /services/[slug]).

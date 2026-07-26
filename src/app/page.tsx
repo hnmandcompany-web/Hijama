@@ -2,41 +2,31 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { Shield, Heart, Leaf, Sun, Wind, Star, ArrowRight } from "lucide-react";
+import {
+  Activity,
+  Wind,
+  Zap,
+  Moon,
+  Feather,
+  Layers,
+  Star,
+  ArrowRight,
+  type LucideIcon,
+} from "lucide-react";
 import { AnimatedSection, AnimatedChild } from "@/components/AnimatedSection";
-import { fadeUpVariants, buttonHover, buttonTap } from "@/lib/animations";
+import { buttonHover, buttonTap } from "@/lib/animations";
+import { aboutHijama, whyWeDoIt, benefits, practiceMarks } from "@/lib/about-config";
 import { useRef } from "react";
 
-const benefits = [
-  { number: "01", icon: Shield, title: "Prophetically Guided", text: "Rooted in the Sunnah and centuries of prophetic tradition" },
-  { number: "02", icon: Heart, title: "Holistic Healing", text: "Mind, body and spirit brought into alignment" },
-  { number: "03", icon: Leaf, title: "Natural Detox", text: "Ancient purification through cupping therapy" },
-  { number: "04", icon: Sun, title: "Hormonal Balance", text: "Natural support for endocrine and metabolic health" },
-  { number: "05", icon: Wind, title: "Circulation & Energy", text: "Restored blood flow, clarity and vitality" },
-  { number: "06", icon: Star, title: "Aftercare Plans", text: "Personalised guidance for lasting wellbeing" },
-];
-
-const stats = [
-  { value: "500+", label: "Sessions Completed" },
-  { value: "5★", label: "Client Rating" },
-  { value: "3+", label: "Years in Practice" },
-  { value: "100%", label: "Certified & Insured" },
-];
-
-const testimonials = [
-  {
-    quote: "The most calming and professional experience. My chronic back pain improved after just two sessions.",
-    author: "Fatima A.",
-  },
-  {
-    quote: "I was nervous at first, but the practitioner made me feel completely at ease. Truly transformative.",
-    author: "Yusuf M.",
-  },
-  {
-    quote: "I’ve tried many therapies. Hijama with this practitioner has been the most effective by far.",
-    author: "Amira K.",
-  },
-];
+const icons: Record<string, LucideIcon> = {
+  Activity,
+  Wind,
+  Zap,
+  Moon,
+  Feather,
+  Layers,
+  Star,
+};
 
 const heroWords = ["Healing", "Through", "Tradition"];
 
@@ -76,7 +66,7 @@ export default function Home() {
           >
             <span className="w-8 h-px bg-sage" />
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sage">
-              Holistic Wellness & Cupping Therapy
+              Ḥijāma &middot; Cupping Therapy
             </p>
           </motion.div>
 
@@ -108,8 +98,8 @@ export default function Home() {
             className="max-w-lg"
           >
             <p className="text-lg text-charcoal/50 leading-relaxed mb-12">
-              Professional Hijama therapy rooted in prophetic medicine and modern wellness practice.
-              Begin your journey to holistic wellbeing.
+              A sunnah performed to a clinical standard — single-use equipment, a private room,
+              and an honest answer about whether ḥijāma is right for you.
             </p>
             <div className="flex flex-wrap gap-4">
               <motion.div whileHover={buttonHover} whileTap={buttonTap}>
@@ -123,10 +113,10 @@ export default function Home() {
               </motion.div>
               <motion.div whileHover={buttonHover} whileTap={buttonTap}>
                 <Link
-                  href="/about"
+                  href="/pricing"
                   className="inline-block border border-charcoal/20 text-charcoal font-medium px-8 py-4 rounded-full hover:border-charcoal/40 transition-colors"
                 >
-                  Our Practice
+                  See Pricing
                 </Link>
               </motion.div>
             </div>
@@ -149,20 +139,20 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ── STATS BAR ── */}
+      {/* ── PRACTICE MARKS ── */}
       <section className="py-20 px-8 lg:px-16 border-y border-sage/10 bg-white">
         <AnimatedSection
           stagger
           className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10"
         >
-          {stats.map((stat) => (
-            <AnimatedChild key={stat.label}>
+          {practiceMarks.map((mark) => (
+            <AnimatedChild key={mark.value}>
               <div className="text-center">
-                <p className="text-4xl md:text-5xl font-bold tracking-tight text-charcoal">
-                  {stat.value}
+                <p className="text-2xl md:text-3xl font-bold tracking-tight text-charcoal">
+                  {mark.value}
                 </p>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-charcoal/35 mt-3">
-                  {stat.label}
+                <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/35 mt-3 leading-relaxed mx-auto max-w-[22ch]">
+                  {mark.label}
                 </p>
               </div>
             </AnimatedChild>
@@ -170,85 +160,118 @@ export default function Home() {
         </AnimatedSection>
       </section>
 
-      {/* ── MANIFESTO ── */}
-      <section className="py-44 px-8 lg:px-16">
-        <AnimatedSection className="max-w-5xl mx-auto text-center">
-          <p className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-charcoal leading-[1.18]">
-            &ldquo;The best remedy for man is blood-letting.&rdquo;
-          </p>
-          <p className="text-xs text-charcoal/35 mt-10 uppercase tracking-[0.28em]">
-            Prophet Muhammad ️ &nbsp;&middot;&nbsp; Sahih Bukhari
-          </p>
+      {/* ── ABOUT HIJAMA ── */}
+      <section id="about-hijama" className="py-36 px-8 lg:px-16">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] gap-14 lg:gap-24">
+          <AnimatedSection>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-5">
+              About Ḥijāma
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-charcoal leading-[1.08]">
+              A serious therapy,<br />in a serious setting
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1} className="flex flex-col gap-6">
+            {aboutHijama.map((para) => (
+              <p
+                key={para.slice(0, 32)}
+                className="text-charcoal/60 leading-relaxed text-[15px] max-w-[62ch]"
+              >
+                {para}
+              </p>
+            ))}
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ── WHY WE DO IT ── */}
+      <section className="px-8 lg:px-16 pb-36">
+        <AnimatedSection className="max-w-6xl mx-auto">
+          <div className="rounded-3xl bg-sage/[0.07] border border-sage/15 px-8 py-14 md:px-16 md:py-20">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-8">
+              Why We Do It
+            </p>
+            <p className="text-xl md:text-2xl text-charcoal/80 leading-[1.65] font-medium max-w-[54ch]">
+              {whyWeDoIt}
+            </p>
+          </div>
         </AnimatedSection>
       </section>
 
       {/* ── BENEFITS ── */}
       <section className="py-32 px-8 lg:px-16 bg-white">
         <div className="max-w-6xl mx-auto">
-          <AnimatedSection className="mb-24">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-5">Why Hijama</p>
+          <AnimatedSection className="mb-20">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-5">Benefits</p>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-charcoal max-w-md leading-[1.08]">
-              Rooted in Wisdom,<br />Proven by Practice
+              What People<br />Come In For
             </h2>
           </AnimatedSection>
 
-          <AnimatedSection stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map(({ number, icon: Icon, title, text }) => (
-              <AnimatedChild key={title}>
-                <div className="p-10 border-b border-sage/10 lg:[&:nth-child(3n)]:border-r-0 sm:border-r border-sage/10 group hover:bg-cream transition-colors">
-                  <div className="flex items-start justify-between mb-8">
-                    <span className="text-xs font-bold text-charcoal/15 tracking-[0.2em]">{number}</span>
-                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-sage/10 group-hover:bg-sage/20 transition-colors">
-                      <Icon size={17} className="text-sage" />
+          <AnimatedSection
+            stagger
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-sage/10"
+          >
+            {benefits.map(({ number, icon, title, text }) => {
+              const Icon = icons[icon];
+              return (
+                <AnimatedChild key={title} className="h-full">
+                  <div className="h-full p-10 border-b border-sage/10 sm:border-r sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0 group hover:bg-cream transition-colors">
+                    <div className="flex items-start justify-between mb-8">
+                      <span className="text-xs font-bold text-charcoal/15 tracking-[0.2em]">{number}</span>
+                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-sage/10 group-hover:bg-sage/20 transition-colors">
+                        {Icon && <Icon size={17} className="text-sage" />}
+                      </div>
                     </div>
+                    <h3 className="font-bold text-charcoal mb-3 text-base">{title}</h3>
+                    <p className="text-sm text-charcoal/45 leading-relaxed">{text}</p>
                   </div>
-                  <h3 className="font-bold text-charcoal mb-3 text-base">{title}</h3>
-                  <p className="text-sm text-charcoal/45 leading-relaxed">{text}</p>
-                </div>
-              </AnimatedChild>
-            ))}
+                </AnimatedChild>
+              );
+            })}
+          </AnimatedSection>
+
+          <AnimatedSection className="mt-12">
+            <p className="text-xs text-charcoal/40 leading-relaxed max-w-[70ch]">
+              Ḥijāma is a complementary therapy and is not a substitute for medical care. See the{" "}
+              <Link href="/evidence#faq" className="text-sage hover:underline">
+                questions page
+              </Link>{" "}
+              for the full picture, including when we&rsquo;ll ask you to speak to your physician first.
+            </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
+      {/* ── EVIDENCE ── */}
       <section className="py-40 px-8 lg:px-16">
-        <div className="max-w-6xl mx-auto">
-          <AnimatedSection className="mb-24">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-5">Testimonials</p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-charcoal">
-              What Our Clients Say
-            </h2>
-          </AnimatedSection>
-
-          <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            {testimonials.map((t) => (
-              <AnimatedChild key={t.author}>
-                <div className="relative pt-12">
-                  <span className="absolute top-0 left-0 text-8xl font-bold text-sage/12 leading-none select-none">
-                    &ldquo;
-                  </span>
-                  <p className="text-charcoal/65 leading-relaxed mb-10 relative z-10 text-[15px]">
-                    {t.quote}
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <span className="w-6 h-px bg-sage" />
-                    <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-charcoal/40">
-                      {t.author}
-                    </p>
-                  </div>
-                </div>
-              </AnimatedChild>
-            ))}
-          </AnimatedSection>
-        </div>
+        <AnimatedSection className="max-w-5xl mx-auto text-center">
+          <p className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-charcoal leading-[1.18] mx-auto">
+            &ldquo;The best of the remedies you treat yourselves with is cupping.&rdquo;
+          </p>
+          <p className="text-xs text-charcoal/35 mt-10 uppercase tracking-[0.28em]">
+            Anas ibn Mālik ؓ &nbsp;&middot;&nbsp; Ṣaḥīḥ al-Bukhārī &amp; Ṣaḥīḥ Muslim
+          </p>
+          <motion.div whileHover={buttonHover} whileTap={buttonTap} className="inline-block mt-12">
+            <Link
+              href="/evidence"
+              className="inline-flex items-center gap-2 border border-charcoal/20 text-charcoal font-medium px-8 py-4 rounded-full hover:border-charcoal/40 transition-colors text-sm"
+            >
+              Read the Qur&rsquo;anic and Prophetic evidence
+              <ArrowRight size={15} />
+            </Link>
+          </motion.div>
+        </AnimatedSection>
       </section>
 
       {/* ── CTA ── */}
       <section className="py-40 px-8 lg:px-16 bg-charcoal">
         <AnimatedSection className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start lg:items-end justify-between gap-14">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-8">Begin Your Journey</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage mb-8">
+              Begin Your Journey
+            </p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.04]">
               Ready to Experience<br />
               <span className="text-sage">True Healing?</span>

@@ -16,7 +16,9 @@ const config: Config = {
         charcoal: "#2C2C2C",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        // Noto Naskh Arabic sits after Inter purely as a glyph fallback for
+        // ﷺ and ؓ, which Inter does not contain.
+        sans: ["var(--font-inter)", "Inter", "var(--font-naskh)", "sans-serif"],
       },
     },
   },

@@ -3,14 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer } from "@/lib/animations";
-
-interface Field {
-  name: string;
-  label: string;
-  type: "text" | "email" | "tel" | "textarea" | "select";
-  required?: boolean;
-  options?: string[];
-}
+import type { Field } from "@/lib/form-fields";
 
 interface NetlifyFormProps {
   formName: string;
@@ -85,7 +78,15 @@ export function NetlifyForm({
               className="block text-xs font-semibold uppercase tracking-widest text-charcoal/50 mb-2"
             >
               {field.label}
+              {!field.required && (
+                <span className="ml-2 normal-case tracking-normal text-charcoal/25 font-normal">
+                  optional
+                </span>
+              )}
             </label>
+            {field.hint && (
+              <p className="text-xs text-charcoal/35 leading-relaxed mb-2.5">{field.hint}</p>
+            )}
             {field.type === "textarea" ? (
               <textarea
                 id={field.name}

@@ -7,11 +7,17 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/additional-services", label: "Services" },
+  { href: "/evidence", label: "Evidence" },
+  { href: "/team", label: "Practitioner" },
+  { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
+];
+
+/** Shown in the mobile drawer only — the desktop bar is already full. */
+const secondaryLinks = [
+  { href: "/", label: "Home" },
+  { href: "/forms", label: "Waivers & Intake Forms" },
 ];
 
 export function NavBar() {
@@ -39,7 +45,7 @@ export function NavBar() {
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {links.map((link) => (
             <NavLink key={link.href} href={link.href} active={pathname === link.href}>
               {link.label}
@@ -73,7 +79,7 @@ export function NavBar() {
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="md:hidden bg-cream/98 backdrop-blur-md border-b border-sage/10 px-8 pb-8 pt-2 flex flex-col gap-5"
         >
-          {links.map((link) => (
+          {[...secondaryLinks.slice(0, 1), ...links, ...secondaryLinks.slice(1)].map((link) => (
             <Link
               key={link.href}
               href={link.href}

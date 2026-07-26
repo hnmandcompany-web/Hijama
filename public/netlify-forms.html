@@ -3,6 +3,18 @@
 <head><title>Netlify Form Definitions</title></head>
 <body>
 
+  <!--
+    Netlify detects forms at build time by parsing static HTML. The React
+    forms are client-rendered, so each one is declared here as well.
+    Field names must match src/lib/form-fields.ts.
+
+    Notifications (so a request reaches the practitioner by text and email)
+    are configured in the Netlify UI:
+      Site settings → Forms → Form notifications
+        · Email notification  → the practitioner's inbox
+        · Outgoing webhook    → an SMS service (e.g. Twilio) for the text
+  -->
+
   <!-- appointment-request form -->
   <form name="appointment-request" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
     <input type="hidden" name="form-name" value="appointment-request" />
@@ -10,11 +22,11 @@
     <input name="name" type="text" />
     <input name="phone" type="tel" />
     <input name="email" type="email" />
-    <select name="service">
-      <option value="Hijama Therapy">Hijama Therapy</option>
-      <option value="Consultation">Consultation</option>
-      <option value="Other">Other</option>
-    </select>
+    <input name="service" type="text" />
+    <input name="cups" type="text" />
+    <input name="contact-method" type="text" />
+    <input name="preferred-days" type="text" />
+    <input name="student" type="text" />
     <textarea name="notes"></textarea>
     <button type="submit">Submit</button>
   </form>
